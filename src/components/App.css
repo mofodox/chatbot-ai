@@ -1,0 +1,14 @@
+#left-panel {
+  font-size: 14px;
+  /* border: 1px solid #ff0000; */
+}
+
+#main-panel {
+  font-size: 24px;
+  /* border: 1px solid seagreen; */
+}
+
+#right-panel {
+  font-size: 14px;
+  /* border: 1px solid rebeccapurple; */
+}
