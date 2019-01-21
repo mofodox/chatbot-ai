@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 class Convo extends React.Component {
   getSplit = (e) => {
-    const t: string[] = e.split(' ');
+    const t = e.split(' ');
     const c = [];
     t.forEach((str, i) => {
       c.push((
@@ -25,7 +25,7 @@ class Convo extends React.Component {
       return (
         <div className="media mb-5">
           <Animated animationIn={`bounceIn`} animationInDelay={this.props.animationInDelay}>
-            <img src={`https://via.placeholder.com/40/ff0090/FFFFFF?text=${this.props.userLetter}`} className="mr-3" alt="user-avatar" />
+            <img src={`https://via.placeholder.com/48/ff0090/FFFFFF?text=${this.props.userLetter}`} className="mr-3" alt="user-avatar" />
           </Animated>
           <div className="media-body">
             <TextyAnim
@@ -63,7 +63,7 @@ class Convo extends React.Component {
             </Animated>
           </div>
           <Animated animationIn={`bounceIn`} animationInDelay={this.props.animationInDelay}>
-            <img src={`https://via.placeholder.com/40/000000/FFFFFF?text=${this.props.userLetter}`} className="ml-3 float-right" alt="user-avatar" />
+            <img src={`https://via.placeholder.com/48/000000/FFFFFF?text=${this.props.userLetter}`} className="ml-3 float-right" alt="user-avatar" />
           </Animated>
         </div>
       )
