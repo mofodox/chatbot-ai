@@ -1,23 +1,32 @@
 const mainData = {
-  bots: [
+  data: [
     {
       jane: {
-        name: "Jane",
+        id: 0,
+        userLetter: 'J',
         messages: [
           {
-            id: 1,
-            message: "Is there any life in space?"
+            messageId: 0,
+            message: "Hello World",
+            imageURL: ""
+          },
+          {
+            messageId: 1,
+            message: "Suppppp",
+            imageURL: ""
           }
         ]
       }
     },
     {
       mike: {
-        name: "Mike",
+        id: 1,
+        userLetter: 'M',
         messages: [
           {
-            id: 2,
-            message: "We can survive in the most hostile environment known as space."
+            messageId: 2,
+            message: 'KJaskdjaslkdjkjfas',
+            imageURL: ''
           }
         ]
       }

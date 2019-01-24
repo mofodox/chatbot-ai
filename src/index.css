@@ -4,6 +4,19 @@ body {
   color: white !important;
 }
 
+/* Helper class */
+.border-green {
+  border-top: 8px solid #49B96E !important;
+}
+
+.border-red {
+  border-top: 8px solid #EE314B !important;
+}
+
+.border-purple {
+  border-top: 8px solid #7454A3 !important;
+}
+
 @media (max-width: 575.98px) {
   body {
     padding: 24px;

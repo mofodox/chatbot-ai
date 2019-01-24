@@ -13,15 +13,16 @@
   /* border: 1px solid rebeccapurple; */
 }
 
+/* .convo-message-left {
+  border-bottom: 2px solid #EE314B;
+  padding-bottom: 24px;
+} */
+
+/* .left-col li:nth-child(3) {
+  border-bottom: 1px solid white;
+} */
+
 .convo-message-left, .convo-message-right {
   word-wrap: break-word;
   max-width: 656px;
 }
-
-#left-panel, #main-panel, #right-panel {
-  /* padding: 0 124px; */
-}
-
-/* .media p {
-  text-align: center;
-} */

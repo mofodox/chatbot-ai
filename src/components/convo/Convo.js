@@ -23,8 +23,8 @@ class Convo extends React.Component {
   checkUser = () => {
     if (this.props.userLetter === 'J') {
       return (
-        <li className="media mb-5" style={ this.props.style }>
-          <Animated 
+        <li className="media mb-5" style={this.props.style}>
+          <Animated
             animationIn={`bounceIn`}
             animationInDelay={this.props.animationInDelay}
           >
@@ -45,14 +45,14 @@ class Convo extends React.Component {
               animationIn={`fadeIn`}
               animationInDelay={this.props.imageAnimationDelay}
             >
-              {this.props.imageURL === '' ? null : <p><img src={this.props.imageURL} className="img-fluid mt-4" style={{ height: '175px' }} alt="anything" /></p> }
+              {this.props.imageURL === '' ? null : <p><img src={this.props.imageURL} className="img-fluid mt-4" style={{ height: '175px' }} alt="anything" /></p>}
             </Animated>
           </div>
         </li>
       )
     } else {
       return (
-        <li className="media text-right mb-5" style={ this.props.style }>
+        <li className="media text-right mb-5" style={this.props.style}>
           <div className="media-body">
             <TextyAnim
               delay={this.props.textAnimDelay}
@@ -66,7 +66,7 @@ class Convo extends React.Component {
               animationIn={`fadeIn`}
               animationInDelay={this.props.imageAnimationDelay}
             >
-              {this.props.imageURL === '' ? null : <p><img src={this.props.imageURL} className="img-fluid mt-4" style={{ height: '175px' }} alt="anything" /></p> }
+              {this.props.imageURL === '' ? null : <p><img src={this.props.imageURL} className="img-fluid mt-4" style={{ height: '175px' }} alt="anything" /></p>}
             </Animated>
           </div>
           <Animated animationIn={`bounceIn`} animationInDelay={this.props.animationInDelay}>
