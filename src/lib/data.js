@@ -1,5 +1,5 @@
-const data = {
-  people: [
+const mainData = {
+  bots: [
     {
       jane: {
         name: "Jane",
@@ -25,4 +25,4 @@ const data = {
   ]
 }
 
-export { data }
+export { mainData }
