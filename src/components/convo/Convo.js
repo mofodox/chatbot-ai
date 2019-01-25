@@ -3,6 +3,10 @@ import TextyAnim from 'rc-texty'
 import {Animated} from 'react-animated-css'
 import PropTypes from 'prop-types'
 
+// avatars
+import J from '../../assets/J.png'
+import M from '../../assets/M.png'
+
 class Convo extends React.Component {
   getSplit = (e) => {
     const t = e.split(' ');
@@ -29,7 +33,7 @@ class Convo extends React.Component {
             animationInDelay={this.props.animationInDelay}
           >
             <p>
-              <img src={`https://via.placeholder.com/48/ff0090/FFFFFF?text=${this.props.userLetter}`} className="mr-3" alt="user-avatar" />
+              <img src={J} className="mr-3 user-avatar" alt="user-avatar" />
             </p>
           </Animated>
           <div className="media-body">
@@ -70,7 +74,7 @@ class Convo extends React.Component {
             </Animated>
           </div>
           <Animated animationIn={`bounceIn`} animationInDelay={this.props.animationInDelay}>
-            <img src={`https://via.placeholder.com/48/000000/FFFFFF?text=${this.props.userLetter}`} className="ml-3 float-right" alt="user-avatar" />
+            <img src={M} className="ml-3 float-right user-avatar" alt="user-avatar" />
           </Animated>
         </li>
       )

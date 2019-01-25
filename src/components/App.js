@@ -53,7 +53,7 @@ class App extends React.Component {
           <Col lg className="left-col" style={{ paddingRight: '32%' }}>
             <ul className="unstyled-list">
               {this.renderConvo(
-                "J",
+                'J',
                 "Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
                 "",
                 25000,
@@ -147,7 +147,7 @@ class App extends React.Component {
               {this.renderConvo(
                 "M",
                 "One idea was to use the Saturn V to launch a small space station that would itself be constructed out of the second stage of a Saturn rocket.",
-                'https://media.giphy.com/media/3ohs4gSs3V0Q7qOtKU/giphy.gif',
+                '',
                 9000,
                 9500,
                 550,

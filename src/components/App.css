@@ -13,7 +13,14 @@
   /* border: 1px solid rebeccapurple; */
 }
 
-/* .convo-message-left, .convo-message-right {
-  word-wrap: break-word;
-  max-width: 656px;
-} */
+.convo-message-left {
+  padding-right: 80px;
+}
+
+.convo-message-right {
+  padding-left: 80px;
+}
+
+.left-col .user-avatar, .right-col .user-avatar {
+  width: 32px;
+}
