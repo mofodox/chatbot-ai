@@ -50,7 +50,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Row>
-          <Col lg className="left-col">
+          <Col lg className="left-col" style={{ paddingRight: '32%' }}>
             <ul className="unstyled-list">
               {this.renderConvo(
                 "J",
@@ -76,7 +76,7 @@ class App extends React.Component {
                 animationIn={`fadeIn`}
                 animationInDelay={ 34000 }
             >
-              <hr className="border-red mr-4 ml-4" />
+              <hr className="border-red" />
             </Animated>
 
             <ul className="unstyled-list mt-5">
@@ -104,7 +104,7 @@ class App extends React.Component {
               animationIn={`fadeIn`}
               animationInDelay={34000}
             >
-              <hr className="border-green mr-4 ml-4" />
+              <hr className="border-green" />
             </Animated>
           </Col>
         </Row>
@@ -164,7 +164,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Row>
-          <Col lg className="right-col">
+          <Col lg className="right-col" style={{ paddingLeft: '32%' }}>
             {this.renderConvo(
               "M",
               "Sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
@@ -197,7 +197,7 @@ class App extends React.Component {
               animationIn={`fadeIn`}
               animationInDelay={24000}
             >
-              <hr className="border-purple mr-4 ml-4" />
+              <hr className="border-purple" />
             </Animated>
           </Col>
         </Row>
