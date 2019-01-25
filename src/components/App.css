@@ -1,3 +1,7 @@
+.unstyled-list {
+  padding-inline-start: 0;
+}
+
 #left-panel {
   font-size: 14px;
   /* border: 1px solid #ff0000; */
@@ -13,14 +17,27 @@
   /* border: 1px solid rebeccapurple; */
 }
 
-.convo-message-left {
+.convo-message-left-main {
   padding-right: 80px;
 }
 
-.convo-message-right {
+.convo-message-right-main {
   padding-left: 80px;
 }
 
+.convo-message-left {
+  padding-right: 32px;
+}
+
+.convo-message-right {
+  padding-left: 32px;
+}
+
+.main-col .user-avatar {
+  margin-top: 10px;
+}
+
 .left-col .user-avatar, .right-col .user-avatar {
-  width: 32px;
+  width: 20px;
+  margin-top: 6px;
 }

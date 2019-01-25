@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import J from '../../assets/J.png'
 import M from '../../assets/M.png'
 
-class Convo extends React.Component {
+class ConvoMain extends React.Component {
   getSplit = (e) => {
     const t = e.split(' ');
     const c = [];
@@ -41,7 +41,7 @@ class Convo extends React.Component {
               delay={this.props.textAnimDelay}
               duration={this.props.textAnimDuration}
               split={this.getSplit}
-              className="convo-message-left"
+              className="convo-message-left-main"
             >
               {this.props.message}
             </TextyAnim>
@@ -62,7 +62,7 @@ class Convo extends React.Component {
               delay={this.props.textAnimDelay}
               duration={this.props.textAnimDuration}
               split={this.getSplit}
-              className="convo-message-right"
+              className="convo-message-right-main"
             >
               {this.props.message}
             </TextyAnim>
@@ -90,7 +90,7 @@ class Convo extends React.Component {
   }
 }
 
-Convo.propTypes = {
+ConvoMain.propTypes = {
   textAnimDelay: PropTypes.number.isRequired,
   textAnimDuration: PropTypes.number.isRequired,
   animationInDelay: PropTypes.number.isRequired,
@@ -99,4 +99,4 @@ Convo.propTypes = {
   imageURL: PropTypes.string
 }
 
-export default Convo
+export default ConvoMain

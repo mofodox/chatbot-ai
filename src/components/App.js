@@ -9,7 +9,8 @@ import {
 
 // import { mainData } from '../lib/data'
 
-import Convo from './convo/Convo'
+import ConvoMain from './convo/ConvoMain'
+import ConvoLog from './convo/ConvoLog'
 
 import './App.css'
 
@@ -22,7 +23,9 @@ class App extends React.Component {
     };
   }
 
-  renderConvo = (
+
+  // Render main convo
+  renderConvoMain = (
     letter,
     message,
     imageURL = "",
@@ -33,7 +36,7 @@ class App extends React.Component {
   ) => {
     return (
       <Animated>
-        <Convo
+        <ConvoMain
           userLetter={`${letter}`}
           message={`${message}`}
           imageURL={`${imageURL}`}
@@ -50,61 +53,42 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Row>
-          <Col lg className="left-col" style={{ paddingRight: '32%' }}>
-            <ul className="unstyled-list">
-              {this.renderConvo(
-                'J',
-                "Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
-                "",
-                25000,
-                26000,
-                550,
-                28500
-              )}
-              {this.renderConvo(
-                "M",
-                "Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
-                '',
-                31000,
-                31500,
-                550,
-                33500
-              )}
-            </ul>
-
-            <Animated
-                animationIn={`fadeIn`}
-                animationInDelay={ 34000 }
-            >
-              <hr className="border-red" />
-            </Animated>
-
-            <ul className="unstyled-list mt-5">
-              {this.renderConvo(
-                "M",
-                "Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
-                "",
-                25000,
-                26000,
-                550,
-                28500
-              )}
-              {this.renderConvo(
-                "J",
-                "Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
-                '',
-                31000,
-                31500,
-                550,
-                33500
-              )}
-            </ul>
-
+          <Col lg className="left-col" style={{ paddingRight: '48%' }}>
             <Animated
               animationIn={`fadeIn`}
-              animationInDelay={34000}
+              animationInDelay={14500}
             >
-              <hr className="border-green" />
+              <ul className="unstyled-list">
+                <ConvoLog
+                  userLetter={`J`}
+                  message={`Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.`}
+                  imageURL={``}
+                />
+                <ConvoLog
+                  userLetter={`M`}
+                  message={`Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.`}
+                  imageURL={``}
+                />
+              </ul>
+              <hr className="border-red mt-5 mb-5" />
+            </Animated>
+            <Animated
+              animationIn={`fadeIn`}
+              animationInDelay={16500}
+            >
+              <ul className="unstyled-list">
+                <ConvoLog
+                  userLetter={`J`}
+                  message={`Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.`}
+                  imageURL={``}
+                />
+                <ConvoLog
+                  userLetter={`M`}
+                  message={`Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.`}
+                  imageURL={``}
+                />
+              </ul>
+              <hr className="border-green mt-5 mb-5" />
             </Animated>
           </Col>
         </Row>
@@ -116,9 +100,9 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Row>
-          <Col lg>
+          <Col lg className="main-col">
             <ul className="unstyled-list">
-              {this.renderConvo(
+              {this.renderConvoMain(
                 "J",
                 "Is there life in space?",
                 "https://media.giphy.com/media/xUA7aW1ddSxtVT5zzi/giphy.gif",
@@ -127,7 +111,7 @@ class App extends React.Component {
                 550,
                 2500
               )}
-              {this.renderConvo(
+              {this.renderConvoMain(
                 "M",
                 "We can survive in the most hostile environment known as space.",
                 '',
@@ -136,7 +120,7 @@ class App extends React.Component {
                 550,
                 5500
               )}
-              {this.renderConvo(
+              {this.renderConvoMain(
                 "J",
                 "Man can only live in space with the help of advanced equipment.",
                 "",
@@ -144,7 +128,7 @@ class App extends React.Component {
                 6500,
                 550
               )}
-              {this.renderConvo(
+              {this.renderConvoMain(
                 "M",
                 "One idea was to use the Saturn V to launch a small space station that would itself be constructed out of the second stage of a Saturn rocket.",
                 '',
@@ -164,40 +148,29 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Row>
-          <Col lg className="right-col" style={{ paddingLeft: '32%' }}>
-            {this.renderConvo(
-              "M",
-              "Sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
-              '',
-              14000,
-              14500,
-              550,
-              16500
-            )}
-            {this.renderConvo(
-              "J",
-              "Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
-              '',
-              17000,
-              17500,
-              550,
-              19500
-            )}
-            {this.renderConvo(
-              "M",
-              "Duis autem vel eum iriure dolor in hendrerit in vvulputate velit esse molestie consequat.",
-              'https://cdn2.vox-cdn.com/uploads/chorus_asset/file/3905550/memefontsocial.0.jpg',
-              21000,
-              21500,
-              550,
-              23500
-            )}
-
+          <Col lg className="right-col" style={{ paddingLeft: '48%' }}>
             <Animated
               animationIn={`fadeIn`}
-              animationInDelay={24000}
+              animationInDelay={20000}
             >
-              <hr className="border-purple" />
+              <ul className="unstyled-list">
+                <ConvoLog
+                  userLetter={`M`}
+                  message={`Sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.`}
+                  imageURL={``}
+                />
+                <ConvoLog
+                  userLetter={`J`}
+                  message={`Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.`}
+                  imageURL={``}
+                />
+                <ConvoLog
+                  userLetter={`M`}
+                  message={`Duis autem vel eum iriure dolor in hendrerit in vvulputate velit esse molestie consequat.`}
+                  imageURL={`https://cdn2.vox-cdn.com/uploads/chorus_asset/file/3905550/memefontsocial.0.jpg`}
+                />
+              </ul>
+              <hr className="border-purple mt-5 mb-5" />
             </Animated>
           </Col>
         </Row>
@@ -206,11 +179,10 @@ class App extends React.Component {
   };
 
   render() {
-    return (
-      <React.Fragment>
+    return <React.Fragment>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Chatbot</title>
+          <title>AI Love</title>
           <link rel="canonical" href="http://mysite.com/example" />
         </Helmet>
         <Row around={"lg"}>
@@ -224,8 +196,7 @@ class App extends React.Component {
             {this.renderRightPanel()}
           </Col>
         </Row>
-      </React.Fragment>
-    );
+      </React.Fragment>;
   }
 }
 
