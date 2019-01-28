@@ -1,37 +1,20 @@
-const mainData = {
-  data: [
+const data = {
+  question: [
     {
-      jane: {
-        id: 0,
-        userLetter: 'J',
-        messages: [
-          {
-            messageId: 0,
-            message: "Hello World",
-            imageURL: ""
-          },
-          {
-            messageId: 1,
-            message: "Suppppp",
-            imageURL: ""
-          }
-        ]
-      }
-    },
-    {
-      mike: {
-        id: 1,
-        userLetter: 'M',
-        messages: [
-          {
-            messageId: 2,
-            message: 'KJaskdjaslkdjkjfas',
-            imageURL: ''
-          }
-        ]
-      }
+      id: "7102",
+      text: "will you date someone taller than you?",
+      user_type: "M",
+      url_gif: null
     }
-  ]
+  ],
+    answer: [
+      {
+        text: "That's really two questions how do you feel about it, and how does she feel about it.",
+        user_type: null,
+        url_gif: null
+      }
+    ],
+      finished: 0
 }
 
-export { mainData }
+export {data}

@@ -1,53 +1,62 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Animated } from 'react-animated-css'
+import axios from 'axios'
+import uuidv1 from 'uuid/v1'
 
 import {
   Row,
   Col
 } from 'react-flexbox-grid'
 
-// import { mainData } from '../lib/data'
-
 import ConvoMain from './convo/ConvoMain'
 import ConvoLog from './convo/ConvoLog'
 
 import './App.css'
+
+let qUserType = [];
+let animationInDelay = 1000,
+    textAnimDelay = 1500,
+    textAnimDuration = 550,
+    imageAnimationDelay = 2500;
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      bots: null
+      questions: [],
+      answers: []
     };
   }
 
+  fetchData = () => {
+    axios.get("http://chat.enlighted.ru/json.php").then(res => {
+      console.log(res.data)
+      const questionsData = res.data.question.map(question => ({
+        id: question.id,
+        text: question.text,
+        url_gif: question.url_gif,
+        user_type: question.user_type
+      }));
 
-  // Render main convo
-  renderConvoMain = (
-    letter,
-    message,
-    imageURL = "",
-    animationInDelay = 0,
-    textAnimDelay = 0,
-    textAnimDuration = 0,
-    imageAnimationDelay = 0
-  ) => {
-    return (
-      <Animated>
-        <ConvoMain
-          userLetter={`${letter}`}
-          message={`${message}`}
-          imageURL={`${imageURL}`}
-          animationInDelay={animationInDelay}
-          textAnimDelay={textAnimDelay}
-          textAnimDuration={textAnimDuration}
-          imageAnimationDelay={imageAnimationDelay}
-        />
-      </Animated>
-    );
-  };
+      const answersData = res.data.answer.map(answer => ({
+        id: uuidv1(),
+        text: answer.text,
+        url_gif: answer.url_gif,
+        user_type: answer.user_type
+      }));
+
+      this.setState({
+        questions: questionsData,
+        answers: answersData
+      });
+    });
+  }
+
+  componentDidMount() {
+    this.fetchData()
+  }
 
   renderLeftPanel = () => {
     return (
@@ -97,52 +106,31 @@ class App extends React.Component {
   };
 
   renderMainPanel = () => {
-    return (
-      <React.Fragment>
+    const { questions, answers } = this.state;
+
+    console.log("q", questions);
+    console.log("a", answers);
+
+    return <React.Fragment>
         <Row>
           <Col lg className="main-col">
             <ul className="unstyled-list">
-              {this.renderConvoMain(
-                "J",
-                "Is there life in space?",
-                "https://media.giphy.com/media/xUA7aW1ddSxtVT5zzi/giphy.gif",
-                1000,
-                1500,
-                550,
-                2500
-              )}
-              {this.renderConvoMain(
-                "M",
-                "We can survive in the most hostile environment known as space.",
-                '',
-                3500,
-                4000,
-                550,
-                5500
-              )}
-              {this.renderConvoMain(
-                "J",
-                "Man can only live in space with the help of advanced equipment.",
-                "",
-                6000,
-                6500,
-                550
-              )}
-              {this.renderConvoMain(
-                "M",
-                "One idea was to use the Saturn V to launch a small space station that would itself be constructed out of the second stage of a Saturn rocket.",
-                '',
-                9000,
-                9500,
-                550,
-                11500
-              )}
+              {questions.map(question => {
+                return <ConvoMain key={question.id} userLetter={question.user_type} message={question.text} imageURL={question.url_gif === null ? "" : question.url_gif} textAnimDelay={textAnimDelay} textAnimDuration={textAnimDuration} animationInDelay={animationInDelay} imageAnimationDelay={imageAnimationDelay} />;
+              })}
+              {answers.map(answer => {
+                questions.map(question => {
+                  qUserType.push(question.user_type);
+                  return qUserType;
+                });
+
+                return <ConvoMain key={answer.id} userLetter={qUserType.toString() === "M" ? "J" : "M"} message={answer.text} imageURL={answer.url_gif === null ? "" : answer.url_gif} textAnimDelay={textAnimDelay} textAnimDuration={textAnimDuration * 3} animationInDelay={animationInDelay * 2} imageAnimationDelay={imageAnimationDelay * 2} />;
+              })}
             </ul>
           </Col>
         </Row>
-      </React.Fragment>
-    );
-  };
+      </React.Fragment>;
+  }
 
   renderRightPanel = () => {
     return (
@@ -187,13 +175,13 @@ class App extends React.Component {
         </Helmet>
         <Row around={"lg"}>
           <Col lg id="left-panel" className="d-none d-sm-block">
-            {this.renderLeftPanel()}
+            {/* {this.renderLeftPanel()} */}
           </Col>
           <Col lg={5} id="main-panel">
             {this.renderMainPanel()}
           </Col>
           <Col lg id="right-panel" className="d-none d-sm-block">
-            {this.renderRightPanel()}
+            {/* {this.renderRightPanel()} */}
           </Col>
         </Row>
       </React.Fragment>;
