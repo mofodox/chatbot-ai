@@ -31,6 +31,9 @@ class ConvoMain extends React.Component {
           <Animated
             animationIn={`bounceIn`}
             animationInDelay={this.props.animationInDelay}
+            animationOut={ `bounceOut` }
+            animationOutDelay={ this.props.animationOutDelay }
+            isVisible={this.props.isVisible}
           >
             <p>
               <img src={J} className="mr-3 user-avatar" alt="user-avatar" />
@@ -38,9 +41,12 @@ class ConvoMain extends React.Component {
           </Animated>
           <div className="media-body">
             <TextyAnim
+              type={`left`}
+              mode={`smooth`}
               delay={this.props.textAnimDelay}
               duration={this.props.textAnimDuration}
               split={this.getSplit}
+              onEnd={this.props.onEnd}
               className="convo-message-left-main"
             >
               {this.props.message}
@@ -59,9 +65,12 @@ class ConvoMain extends React.Component {
         <li className="media text-right mb-5" style={this.props.style}>
           <div className="media-body">
             <TextyAnim
+              type={`right`}
+              mode={`smooth`}
               delay={this.props.textAnimDelay}
               duration={this.props.textAnimDuration}
               split={this.getSplit}
+              onEnd={this.props.onEnd}
               className="convo-message-right-main"
             >
               {this.props.message}
@@ -73,7 +82,13 @@ class ConvoMain extends React.Component {
               {this.props.imageURL === '' ? null : <p><img src={this.props.imageURL} className="img-fluid mt-4" style={{ height: '175px' }} alt="anything" /></p>}
             </Animated>
           </div>
-          <Animated animationIn={`bounceIn`} animationInDelay={this.props.animationInDelay}>
+          <Animated
+            animationIn={`bounceIn`}
+            animationInDelay={this.props.animationInDelay}
+            animationOut={`bounceOut`}
+            animationOutDelay={this.props.animationOutDelay}
+            isVisible={this.props.isVisible}
+          >
             <img src={M} className="ml-3 float-right user-avatar" alt="user-avatar" />
           </Animated>
         </li>
