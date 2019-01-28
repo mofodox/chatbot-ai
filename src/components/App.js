@@ -54,7 +54,8 @@ class App extends React.Component {
       this.setState({
         questions: questionsData,
         answers: answersData,
-        finished: res.data.finished
+        finished: res.data.finished,
+        isVisible: this.state.isVisible
       });
     });
   }
@@ -65,6 +66,10 @@ class App extends React.Component {
     });
   }
 
+  componentDidMount() {
+    this.fetchData()
+  }
+
   componentWillMount() {
     this.fetchData()
 
@@ -72,6 +77,12 @@ class App extends React.Component {
       this.setState({
         isVisible: false
       })
+    } else {
+      setTimeout( () => {
+        this.setState({
+          isVisible: true
+        })
+      }, 5000)
     }
   }
 
@@ -81,10 +92,10 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Row>
-          <Col lg className="left-col" style={{ paddingRight: '48%' }}>
+          <Col lg className="left-col" style={{ paddingRight: '38%' }}>
             <Animated
               animationIn={`fadeIn`}
-              animationInDelay={animationInDelay * 5}
+              animationInDelay={animationInDelay * 8}
             >
               <ul className="unstyled-list">
                 {questions.map(question => {
@@ -142,8 +153,7 @@ class App extends React.Component {
                     textAnimDuration={textAnimDuration}
                     animationInDelay={animationInDelay}
                     imageAnimationDelay={imageAnimationDelay} 
-                    animationOutDelay={animationOutDelay * 2} 
-                    isVisible={ isVisible } 
+                    animationOutDelay={animationOutDelay} 
                   />
                 );
               })}
@@ -159,8 +169,6 @@ class App extends React.Component {
                     textAnimDuration={textAnimDuration * 3}
                     animationInDelay={animationInDelay * 2}
                     imageAnimationDelay={imageAnimationDelay * 2}
-                    animationOutDelay={animationOutDelay * 2}
-                    isVisible={ isVisible } 
                   />
                 );
               })}
@@ -177,10 +185,10 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Row>
-          <Col lg className="right-col" style={{ paddingLeft: '48%' }}>
+          <Col lg className="right-col" style={{ paddingLeft: '38%' }}>
             <Animated
               animationIn={`fadeIn`}
-              animationInDelay={animationInDelay * 8}
+              animationInDelay={animationInDelay * 10}
             >
               <ul className="unstyled-list">
                 { questions.map(question => {

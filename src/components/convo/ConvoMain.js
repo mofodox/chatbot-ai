@@ -54,6 +54,9 @@ class ConvoMain extends React.Component {
             <Animated
               animationIn={`fadeIn`}
               animationInDelay={this.props.imageAnimationDelay}
+              animationOut={`fadeOut`}
+              animationOutDelay={this.props.animationOutDelay}
+              isVisible={this.props.isVisible}
             >
               {this.props.imageURL === '' ? null : <p><img src={this.props.imageURL} className="img-fluid mt-4" style={{ height: '175px' }} alt="anything" /></p>}
             </Animated>
@@ -70,7 +73,7 @@ class ConvoMain extends React.Component {
               delay={this.props.textAnimDelay}
               duration={this.props.textAnimDuration}
               split={this.getSplit}
-              onEnd={this.props.onEnd}
+              leave={this.props.leave}
               className="convo-message-right-main"
             >
               {this.props.message}
@@ -78,6 +81,9 @@ class ConvoMain extends React.Component {
             <Animated
               animationIn={`fadeIn`}
               animationInDelay={this.props.imageAnimationDelay}
+              animationOut={`fadeOut`}
+              animationOutDelay={this.props.animationOutDelay}
+              isVisible={this.props.isVisible}
             >
               {this.props.imageURL === '' ? null : <p><img src={this.props.imageURL} className="img-fluid mt-4" style={{ height: '175px' }} alt="anything" /></p>}
             </Animated>
